@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Creative Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Amazon Creative Checker</h1>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="adType">Type d'annonce:</label>
+                <select name="ad_type" id="adType" required>
+                    <option value="streaming_tv">Streaming TV</option>
+                    <option value="display">Display</option>
+                    <option value="twitch">Twitch</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="creative">Fichier créatif:</label>
+                <input type="file" id="creative" name="file" required>
+            </div>
+            <button type="submit">Vérifier</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+    
