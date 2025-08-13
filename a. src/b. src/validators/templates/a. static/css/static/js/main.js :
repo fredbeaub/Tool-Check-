@@ -1,0 +1,35 @@
+document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData();
+    const file = document.getElementById('creative').files[0];
+    const adType = document.getElementById('adType').value;
+    
+    formData.append('file', file);
+    formData.append('ad_type', adType);
+    
+    try {
+        const response = await fetch('/check', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        const resultsDiv = document.getElementById('results');
+        
+        if (result.valid) {
+            resultsDiv.innerHTML = '<p class="success">La créative est conforme aux spécifications!</p>';
+        } else {
+            resultsDiv.innerHTML = `
+                <p class="error">La créative n'est pas conforme:</p>
+                <ul>
+                    ${result.errors.map(error => `<li>${error}</li>`).join('')}
+                </ul>
+            `;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+    
