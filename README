@@ -1,0 +1,20 @@
+# Amazon Creative Checker Tool
+
+Un outil de vérification des créatives publicitaires selon les spécifications Amazon DSP.
+
+## Fonctionnalités
+
+- Vérification des images (JPG, PNG, GIF)
+- Vérification des vidéos (MP4)
+- Support pour :
+  - Amazon Streaming TV & Prime Video Ads
+  - Twitch Ads
+  - Display Ads
+  - Premium Video Ads
+
+## Installation
+
+```bash
+git clone https://github.com/fredbeaub/Tool-Check-.git
+cd Tool-Check-
+pip install -r requirements.txt
